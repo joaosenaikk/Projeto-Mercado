@@ -1,5 +1,3 @@
 /application/
 /connectionFactory/
-/controller/
-/model/
-/view/
+/dao/
