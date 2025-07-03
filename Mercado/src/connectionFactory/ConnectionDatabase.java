@@ -10,7 +10,7 @@ public class ConnectionDatabase {
 	// Endereço do Driver SQL Server
 	private static final String Driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 	// Endereço do Banco de Dados
-	private static final String URL = "jdbc:sqlserver://localhost:1433;encrypt=false;databaseName=Mercado2";
+	private static final String URL = "jdbc:sqlserver://localhost:51692;encrypt=false;databaseName=Mercado";
 	// Usuario do banco de Dados
 	private static final String user = "sa";
 	// Senha do Banco de Dados

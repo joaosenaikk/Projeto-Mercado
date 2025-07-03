@@ -1,6 +1,7 @@
 package application;
 	
 import java.sql.Connection;
+import java.util.ArrayList;
 
 import connectionFactory.ConnectionDatabase;
 import dao.ClienteDAO;
@@ -28,23 +29,38 @@ public class Main extends Application {
 	public static void main(String[] args) {
 		Cliente cliente = new Cliente();
 		ClienteDAO clienteDAO = new ClienteDAO();
+		ArrayList<Cliente> clientes = new ArrayList<>();
 		
-		cliente.setNomeCliente("Pedro");
-		cliente.setCpfCliente("1234567890");
-		cliente.setDataNasc("1900-09-09");
-		cliente.setEmail("Pedrodoscabal@gmail.com");
-		cliente.setEndereco("rua do cachimba");
-		cliente.setTelefone("12088887777");
+		clientes = clienteDAO.read();
 		
-		clienteDAO.create(cliente);
+		for(int i = 0; i < clientes.size(); i++) {
+			cliente = clientes.get(i);
+			System.out.println("||");
+			System.out.println(cliente.getIdCliente());
+			System.out.println(" | ");
+			System.out.println(cliente.getCpfCliente());
+			System.out.println(" | ");
+			System.out.println(cliente.getDataNasc());
+			System.out.println(" | ");
+			System.out.println(cliente.getNomeCliente());
+			System.out.println(" | ");
+			System.out.println(cliente.getEndereco());
+			System.out.println(" | ");
+			System.out.println(cliente.getEmail());
+			System.out.println(" | ");
+			System.out.println(cliente.getTelefone());
+			
+			
+			
+		}
+		
 
 		
 		
 		launch(args);
 	}
 
-	private static void launch(String[] args) {
-		// TODO Auto-generated method stub
+
 		
 	}
-}
+
