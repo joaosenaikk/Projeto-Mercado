@@ -17,13 +17,15 @@ public class ClienteDAO {
 		
 		
 		try {
-			stmt = con.prepareStatement("INSERT INTO Cliente values(?,?,?,?,?,?)");
+			stmt = con.prepareStatement("UPDATE Cliente set nomeCliente = ?, cpfCliente = ?, dataNasc = ?, "
+					+ "telefone = ?, endereco = ?, email = ? where cpfCliente = ?");
 			stmt.setString(1, cliente.getNomeCliente());
 			stmt.setString(2, cliente.getCpfCliente());
 			stmt.setString(3, cliente.getDataNasc());
 			stmt.setString(4, cliente.getTelefone());
 			stmt.setString(5, cliente.getEndereco());
 			stmt.setString(6, cliente.getEmail());
+			stmt.setString(7, cliente.getCpfCliente());
 			
 			stmt.execute();
 			System.out.println("CLiente Cadastrado!");

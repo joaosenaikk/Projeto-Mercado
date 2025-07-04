@@ -1,9 +1,7 @@
 package application;
 	
-import java.sql.Connection;
 import java.util.ArrayList;
 
-import connectionFactory.ConnectionDatabase;
 import dao.ClienteDAO;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -35,7 +33,7 @@ public class Main extends Application {
 		
 		for(int i = 0; i < clientes.size(); i++) {
 			cliente = clientes.get(i);
-			System.out.println("||");
+			System.out.println("---");
 			System.out.println(cliente.getIdCliente());
 			System.out.println(" | ");
 			System.out.println(cliente.getCpfCliente());
