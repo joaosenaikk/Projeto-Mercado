@@ -39,21 +39,26 @@ public class ClienteDAO {
 		
 	}
 	
-	public ArrayList<Cliente> read(){
+	public ArrayList<Cliente> search(String pesquisar){
 		Connection con = ConnectionDatabase.getConnection();
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
+		pesquisar = "%" + pesquisar + "%";
 		ArrayList<Cliente> clientes = new ArrayList<>();
 		
 		
 		try {
-			stmt = con.prepareStatement("SELECT * FROM Cliente");
+			stmt = con.prepareStatement("SELECT * FROM Cliente where nomeCliente like ? or cpfCliente like ?");
+			stmt.setString(1, pesquisar);
+			stmt.setString(2, pesquisar);
+			
 			rs = stmt.executeQuery();
 			
 			while(rs.next()) {
 				Cliente cliente = new Cliente();
 				cliente.setIdCliente(rs.getString("idCliente"));
 				cliente.setNomeCliente(rs.getString("nomeCliente"));
+				cliente.setCpfCliente(rs.getString("cpfCliente"));
 				cliente.setDataNasc(rs.getString("dataNasc"));
 				cliente.setTelefone(rs.getString("telefone"));
 				cliente.setEndereco(rs.getString("endereco"));
