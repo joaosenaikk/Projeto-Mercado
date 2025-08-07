@@ -6,12 +6,12 @@ public class Venda {
 	private String idFuncionario;
 	private String idCliente;
 	private String dataVenda;
-	private String precoTotal;
+	private double precoTotal;
 	private String formaPag;
-	private String quantTotal;
+	private int quantTotal;
 	
-	public Venda(String idVenda, String idFuncionario, String idCliente, String dataVenda, String precoTotal,
-			String formaPag, String quantTotal) {
+	public Venda(String idVenda, String idFuncionario, String idCliente, String dataVenda, double precoTotal,
+			String formaPag, int quantTotal) {
 		super();
 		this.idVenda = idVenda;
 		this.idFuncionario = idFuncionario;
@@ -58,11 +58,11 @@ public class Venda {
 		this.dataVenda = dataVenda;
 	}
 
-	public String getPrecoTotal() {
+	public double getPrecoTotal() {
 		return precoTotal;
 	}
 
-	public void setPrecoTotal(String precoTotal) {
+	public void setPrecoTotal(double precoTotal) {
 		this.precoTotal = precoTotal;
 	}
 
@@ -74,11 +74,11 @@ public class Venda {
 		this.formaPag = formaPag;
 	}
 
-	public String getQuantTotal() {
+	public int getQuantTotal() {
 		return quantTotal;
 	}
 
-	public void setQuantTotal(String quantTotal) {
+	public void setQuantTotal(int quantTotal) {
 		this.quantTotal = quantTotal;
 	}
 	

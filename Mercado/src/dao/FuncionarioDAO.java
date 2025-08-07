@@ -17,7 +17,7 @@ public class FuncionarioDAO {
 
 		try {
 			stmt = con.prepareStatement("UPDATE Funcionario SET nomeFuncionario = ?, cpfFuncionario = ?, dataNasc = ?, "
-					+ "telefone = ?, endereco = ?, email = ?, cargo = ?, nivel = ? WHERE cpfFuncionario = ?");
+					+ "telefone = ?, endereco = ?, email = ?, cargo = ?, nivel = ?, senha = ? WHERE cpfFuncionario = ?");
 			stmt.setString(1, funcionario.getNomeFuncionario());
 			stmt.setString(2, funcionario.getCpfFuncionario());
 			stmt.setString(3, funcionario.getDataNasc());
@@ -26,7 +26,7 @@ public class FuncionarioDAO {
 			stmt.setString(6, funcionario.getEmail());
 			stmt.setString(7, funcionario.getCargo());
 			stmt.setString(8, funcionario.getNivel());
-			stmt.setString(9, funcionario.getCpfFuncionario());
+			stmt.setString(9, funcionario.getSenha());
 
 			stmt.execute();
 			System.out.println("Funcionário cadastrado!");
@@ -38,22 +38,20 @@ public class FuncionarioDAO {
 		}
 	}
 
-	public ArrayList<Funcionario> search(String pesquisar) {
+	public Funcionario autenticarUser(String user, String password) {
 		Connection con = ConnectionDatabase.getConnection();
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
-		pesquisar = "%" + pesquisar + "%";
-		ArrayList<Funcionario> funcionarios = new ArrayList<>();
+		Funcionario funcionario = new Funcionario();
 
 		try {
-			stmt = con.prepareStatement("SELECT * FROM Funcionario WHERE nomeFuncionario LIKE ? OR cpfFuncionario LIKE ?");
-			stmt.setString(1, pesquisar);
-			stmt.setString(2, pesquisar);
+			stmt = con.prepareStatement("SELECT * FROM Funcionario WHERE cpfFuncionario = ? and senha = ?");
+			stmt.setString(1, user);
+			stmt.setString(2, password);
 
 			rs = stmt.executeQuery();
 
 			while (rs.next()) {
-				Funcionario funcionario = new Funcionario();
 				funcionario.setIdFuncionario(rs.getString("idFuncionario"));
 				funcionario.setNomeFuncionario(rs.getString("nomeFuncionario"));
 				funcionario.setCpfFuncionario(rs.getString("cpfFuncionario"));
@@ -63,8 +61,9 @@ public class FuncionarioDAO {
 				funcionario.setEmail(rs.getString("email"));
 				funcionario.setCargo(rs.getString("cargo"));
 				funcionario.setNivel(rs.getString("nivel"));
+				funcionario.setSenha(rs.getString("senha"));
 
-				funcionarios.add(funcionario);
+
 			}
 
 		} catch (SQLException e) {
@@ -73,6 +72,6 @@ public class FuncionarioDAO {
 			ConnectionDatabase.closeConnection(con, stmt, rs);
 		}
 
-		return funcionarios;
+		return funcionario;
 	}
 }

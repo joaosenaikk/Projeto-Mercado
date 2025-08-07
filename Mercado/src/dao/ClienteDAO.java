@@ -81,6 +81,13 @@ public class ClienteDAO {
 		return clientes;
 		
 	}
+
+	public ArrayList<Cliente> read() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 	
 	
 	

@@ -5,10 +5,10 @@ public class VendaProduto {
 	private String idVendaProduto;
 	private String idVenda;
 	private String idProduto;
-	private String quantidade;
-	private String valorTotal;
+	private int quantidade;
+	private double valorTotal;
 	
-	public VendaProduto(String idVendaProduto, String idVenda, String idProduto, String quantidade, String valorTotal) {
+	public VendaProduto(String idVendaProduto, String idVenda, String idProduto, int quantidade, double valorTotal) {
 		super();
 		this.idVendaProduto = idVendaProduto;
 		this.idVenda = idVenda;
@@ -48,19 +48,19 @@ public class VendaProduto {
 		this.idProduto = idProduto;
 	}
 
-	public String getQuantidade() {
+	public int getQuantidade() {
 		return quantidade;
 	}
 
-	public void setQuantidade(String quantidade) {
+	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
 	}
 
-	public String getValorTotal() {
+	public double getValorTotal() {
 		return valorTotal;
 	}
 
-	public void setValorTotal(String valorTotal) {
+	public void setValorTotal(double valorTotal) {
 		this.valorTotal = valorTotal;
 	}
 	

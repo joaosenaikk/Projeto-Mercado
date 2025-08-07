@@ -8,11 +8,11 @@ public class Produto {
 	private String tipoUn;
 	private String dataFab;
 	private String dataVal;
-	private String precoUn;
-	private String estoque;
+	private double precoUn;
+	private int estoque;
 	
 	public Produto(String idProduto, String nomeProduto, String codBarra, String tipoUn, String dataFab, String dataVal,
-			String precoUn, String estoque) {
+			double precoUn, int estoque) {
 		super();
 		this.idProduto = idProduto;
 		this.nomeProduto = nomeProduto;
@@ -76,19 +76,19 @@ public class Produto {
 		this.dataVal = dataVal;
 	}
 
-	public String getPrecoUn() {
+	public double getPrecoUn() {
 		return precoUn;
 	}
 
-	public void setPrecoUn(String precoUn) {
+	public void setPrecoUn(double precoUn) {
 		this.precoUn = precoUn;
 	}
 
-	public String getEstoque() {
+	public int getEstoque() {
 		return estoque;
 	}
 
-	public void setEstoque(String estoque) {
+	public void setEstoque(int estoque) {
 		this.estoque = estoque;
 	}
 	
